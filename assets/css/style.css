@@ -1,0 +1,276 @@
+
+body{
+  min-height: 1000px;
+  background-color: black;
+  color:yellow;
+  font-family: 'Rammetto One', sans-serif;
+  font-size: 1.6em;
+  font-weight: 800;
+  margin: 0 0 0 0;
+}
+
+.hdr{
+  font-size: 2.4em;
+}
+button{
+  background-color: black;
+  border-radius: 8%;
+  margin: 1%;
+}
+.navbar{
+  background: black;
+  margin-bottom: 5px;
+  border: 0;
+ 
+}
+.navbar-collapse{
+  width: 50%;
+  float: right;
+ 
+}
+.navbar-header{
+  width: 30%;
+  float: right;
+ 
+}
+.logo{
+  position: relative;
+  
+  max-width: 70%;     
+  padding: 3px;
+  margin: 0;
+  z-index: 5;  
+  
+}
+.mymenu{
+ padding: 10px; 
+ color:#008eff;
+  
+}
+
+.mymenu>a{
+   
+  color:#008eff;
+  
+ }
+
+ .navbar-default .navbar-nav>li>a {
+  color:#008eff;
+}
+.main{
+  margin:  1.5% auto;
+  padding: 5% 5%;
+  max-width: 90%;
+  min-height: 80vh;
+  border-radius: 3%;
+  opacity: .6;
+  background: linear-gradient(#008eff,black );
+  text-align: center;
+  line-height: 50px;
+  
+}
+#timer, #AskQuestion{
+  font-size: 1.8em;
+  margin-bottom: 2%;
+}
+#QTitle{
+  margin-bottom: 2%;
+}
+#splashtext{
+  margin: auto auto;
+  padding: 10%;
+}
+#Go{
+  font-size: 1.8em;
+}
+#menubar{
+  margin-top: 2%;
+}
+.ansbutton{
+  font-size: 1em;
+  line-height: 1.4em;
+  width: 100%;
+  height: 50%;
+  padding: 5% 5%;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logo{
+  position: relative;
+  
+  font-size: 3em;
+  max-width: 70%;     
+  display: inline;
+  padding: 5px;
+}
+.mymenu{
+ padding: 3px; 
+ font-size: 1.8em;
+ 
+
+}
+
+
+#maincontent{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: -5;
+  max-width: 100%;
+  min-width: 130px;
+  display: inline;
+}
+
+.mcimg{
+  max-width: 14%;
+  min-width: 100px;
+  margin: 2%;
+  padding:9% 11%;
+  position: relative;
+  border: solid black 1px;
+  border-radius: 10%;
+  font-size:1.1em;
+  display: inline-block;
+  margin: 5px;
+ 
+
+  
+}
+.mcmovie{
+
+  max-width:35%;
+  padding:1% 30%;
+    
+}
+
+.gipRat{
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  font-size: 1.4em;
+  display: inline-block;
+  border-radius: 20%;
+  background-color: black;
+  padding:1px;
+  opacity: .8;
+  z-index: 5;
+}
+.Mycc{
+  
+  
+}
+.WeeHead{
+  height:30%;
+  width:10%;
+  
+}
+
+#addinput{
+  width: 65%;
+  min-width: 30px;
+  
+  border-radius: 0;
+  
+  }
+  #addbutton{
+    
+    min-width: 20px;
+    margin-left: 2px;
+    font-size: 1em;
+    display: inline;
+  }
+  .sub>H2{
+    font-size:3em;
+  }
+ 
+.controltheme{
+  background-color: black;
+  color: yellow;   
+  border: 1px solid white;
+  
+  border-radius: 13%;
+  padding: 5px;
+  margin: 4px;
+  opacity: .7;
+  
+  
+}
+.innercontrol{
+  background-color: blue;
+  color: yellow;
+  padding: 1%;
+  font-size: .8em;
+  margin: 0;
+  opacity: .9;
+}
+.controltheme:hover{
+  color: yellow;
+  background-color: rgb(172, 84, 231);
+}
+.ThemeMovie{
+  min-width: 45%; 
+  width:100%;
+  
+}
+.RemoveMovie{
+  padding: 0;
+  font-size: .7em;
+  min-width: 10%;
+  float: right;
+}
+
+
+
+.rowblock{
+  display:block;
+
+}
+.logo{
+  color:#000;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+ color: #008eff;
+}
+ .navbar{
+  background-color: yellow;
+  border-color: black;
+ 
+}
+.navbar-collapse{
+
+  float: right;
+
+}
+.navbar-header{
+
+  float: right;
+
+}
+ .navbar-default .navbar-nav>li>a {
+
+  color:#000;
+
+}
+
+@media screen and (max-width:769px){
+body{
+  font-size: .9em;
+}
+.mcmovie{
+  max-width: 40%;
+  min-width: 10%;  
+}}

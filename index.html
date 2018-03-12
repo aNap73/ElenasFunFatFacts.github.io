@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Elaina's Fun Nutrition Quiz</title>
+  <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/javascript/giffypage.js"></script>
+  <script src="./assets/javascript/trivia.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-default mynavbar">
+    <!--img class="logo" src="./assets/images/TechLogo.gif"/-->
+    
+      <div class="logo">Elena's Fun Fats Facts</div>       
+      <div class="navbar-header">
+                         
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>                        
+      </div>
+      
+        <div id="navbar" class="navbar-collapse collapse">
+                
+          <ul class="nav navbar-nav navbar-right">
+            <li class="mymenu"><a onclick="TriviaGame.reset()">Reset</a></li>
+            <li class="mymenu"><a onclick="TriviaGame.mToggle()" id="MusicLabel">Music(On)</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->      
+        
+      
+     </nav>
+     
+     <div class="main container-fluid" id="maincontent">
+      
+     </div>
+
+
+
+
+
+     <div class="jumbotron main" id="splash"><div id="splashtext"><H2>Nutrition Trivia</H2><button id="Go">Start</button></div></div>  
+     
+     <div class="jumbotron main container-fluid" id="run" style="display:none">
+     <div class="row" id="QTitle">
+       <div class="col-md-4"><div class='hdr'>Timer</div><span id="timer">00:10</span></div>
+       <div class="col-md-4"><div class='hdr'>Question?</div></div>       
+     </div>
+     <div class="row">
+     <div class="col-md-8 col-md-offset-2"><span id="AskQuestion"></span></div>
+     </div>
+     <div class="row" id="menubar">
+       <div class="col-md-4 col-md-offset-2 butsize" id="but1"></div>
+       <div class="col-md-4 butsize" id="but2"></div>
+     </div>  
+     <div class="row" id="menubar2">
+        <div class="col-md-4 col-md-offset-2 butsize" id="but3"></div>
+        <div class="col-md-4 butsize" id="but4"></div>
+     </div>
+    </div>
+
+    <div class="jumbotron main container-fluid" id="TriviaOutcome" style="display:none">
+     <div class="row"><div class="col-md-12"><H2 id="outcomeTime"></H2></div></div>       
+     <div class="row"><div class="col-md-12"><H2 id="outcome"></H2></div></div>       
+     <div class="row"><div class="col-md-12"><H2 id="outcomeAnswer"></H2></div></div>     
+    </div>
+
+
+
+
+
+
+     <audio controls loop autoplay id="MusicToggle" style="display:none">
+      <source src="./assets/noise/NoiseDance.mp3" type="audio/mpeg" autoplay=false id="musicPlayer">
+    </audio>
+    <audio id="SFX" style="display:none">
+      <source src="./assets/noise/beep.wav" type="audio/mpeg" autoplay=false id="musicPlayer">
+    </audio>
+</body>
+</html>
