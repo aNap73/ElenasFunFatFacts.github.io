@@ -94,12 +94,12 @@ var TriviaGame = {
       $("#timer").text(TriviaGame.timeConverter(TriviaGame.QuestionTime/1000));
       document.getElementById("SFX").play();
       TriviaGame.newquestion();
-      if(bGameMusicOn){TriviaGame.gameMusicPlayer.play();}
+      if(TriviaGame.bGameMusicOn){TriviaGame.gameMusicPlayer.play();}
   },
   newquestion: function (){
     if(TriviaGame.CurQuestion < TriviaGame.arrQuestion.length){
       $("#timer").text("00:10");
-      $("#splash").hide();
+      $("#splash").hide(); 
       $("#TriviaOutcome").hide();      
       $("#run").show();
       TriviaGame.QuestionTime = TriviaGame.MaxTime;

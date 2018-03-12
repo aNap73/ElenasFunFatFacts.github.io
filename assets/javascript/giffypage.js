@@ -1,4 +1,4 @@
- /*©2018 A. Napolitano,   Elena Mills, RD*/
+ /*©2018 A. Napolitano, Elena Mills RD*/
  var ElsFunNutQuiz={
    authRatings: 'pg',
    bPageRatings: false,
@@ -79,5 +79,6 @@ $(document).ready(function(){{
 
   ElsFunNutQuiz.ThemePage('Nutrition');
   TriviaGame.reset();
+  if(TriviaGame.bGameMusicOn){TriviaGame.gameMusicPlayer.play();}
   $("#Go").on('click', function(){TriviaGame.start();});  
  }});
