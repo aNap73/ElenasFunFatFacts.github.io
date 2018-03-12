@@ -1,5 +1,6 @@
 /*©2018 A. Napolitano,  Elena Mills, RD*/
 var TriviaGame = {
+  bFirstTime:true,
   gameMusicPlayer:document.getElementById("MusicToggle"), 
   gameSFXPlayer:document.getElementById("SFX"),
   gameMusic:$("#MusicToggle"),
@@ -22,6 +23,8 @@ var TriviaGame = {
   },
   arrQuestion: [],
   reset: function () {
+    
+    TriviaGame.bFirstTime =false;
     clearTimeout(TriviaGame.GameTimeOut);
     clearInterval(TriviaGame.GameInterval);
     TriviaGame.arrQuestion.length=0;
@@ -82,7 +85,7 @@ var TriviaGame = {
 
     TriviaGame.QuestionsLeft = TriviaGame.arrQuestion.length;
     TriviaGame.CurQuestion = 0;
-   
+    TriviaGame.gameMusicPlayer.play(); 
   },
   start(){
       $("#splash").hide();
