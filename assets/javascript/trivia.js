@@ -23,8 +23,11 @@ var TriviaGame = {
   },
   arrQuestion: [],
   reset: function () {
+    if(TriviaGame.bFirstTime){
+      TriviaGame.bGameMusicOn= true;
+      TriviaGame.bFirstTime =false;
+    }
     
-    TriviaGame.bFirstTime =false;
     clearTimeout(TriviaGame.GameTimeOut);
     clearInterval(TriviaGame.GameInterval);
     TriviaGame.arrQuestion.length=0;
@@ -38,7 +41,7 @@ var TriviaGame = {
     TriviaGame.gameSFXPlayer=document.getElementById("SFX");
     TriviaGame.gameMusic=$("#MusicToggle");
     TriviaGame.gameSFX=$("#SFX");
-    TriviaGame.bGameMusicOn= true;
+    
     TriviaGame.MaxTime= 10000;
     TriviaGame.QuestionTime=0;  
     TriviaGame.TransitionTime=5000;
@@ -92,9 +95,9 @@ var TriviaGame = {
       $("#run").show();
       $("#TriviaOutcome").hide();
       $("#timer").text(TriviaGame.timeConverter(TriviaGame.QuestionTime/1000));
-      document.getElementById("SFX").play();
+      document.getElementById("SFX").play();      
       TriviaGame.newquestion();
-      if(TriviaGame.bGameMusicOn){TriviaGame.gameMusicPlayer.play();}
+      if(TriviaGame.bGameMusicOn){document.getElementById("MusicToggle").play();}
   },
   newquestion: function (){
     if(TriviaGame.CurQuestion < TriviaGame.arrQuestion.length){
