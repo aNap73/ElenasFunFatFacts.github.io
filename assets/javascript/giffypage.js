@@ -16,12 +16,11 @@
       return col;
     },    
     getGiffyCol1: function(inSrch){
-      let col = [];
-        let gkey = "aGpceXfwMY5TKtoH39N128oj2HirwBKv";
-         let offset = Math.floor(Math.random()*125);    
-         $.ajax({
-           //"&g=pg,g,pg-13
-           url: "https://api.giphy.com/v1/gifs/search?api_key=" + gkey + "&rating=" + ElsFunNutQuiz.authRatings + "&q='" + inSrch + "'&offset=" + offset + "&limit=15",
+        let col = [];
+        let curfn = "aGpceXfwMY5TKtoH39N128oj2HirwBKv";
+        let offset = Math.floor(Math.random()*125);    
+         $.ajax({           
+           url: "https://api.giphy.com/v1/gifs/search?api_key=" + curfn + "&rating=" + ElsFunNutQuiz.authRatings + "&q='" + inSrch + "'&offset=" + offset + "&limit=15",
            method: "GET"
          }).then(function(response) {
            ElsFunNutQuiz.colGiffys = [];

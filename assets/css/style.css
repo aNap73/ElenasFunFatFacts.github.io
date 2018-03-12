@@ -7,6 +7,7 @@ body{
   font-size: 1.6em;
   font-weight: 800;
   margin: 0 0 0 0;
+  
 }
 
 .hdr{
@@ -16,12 +17,12 @@ button{
   background-color: black;
   border-radius: 8%;
   margin: 1%;
+ 
 }
 .navbar{
   background: black;
   margin-bottom: 5px;
-  border: 0;
- 
+  border: 0; 
 }
 .navbar-collapse{
   width: 50%;
@@ -87,8 +88,8 @@ button{
   margin-top: 2%;
 }
 .ansbutton{
-  font-size: 1em;
-  line-height: 1.4em;
+  font-size: 1.6em;
+  line-height: 1.2em;
   width: 100%;
   height: 50%;
   padding: 5% 5%;
