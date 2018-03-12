@@ -112,11 +112,15 @@ button{
 
 .logo{
   position: relative;
-  
+  margin: 5px;
   font-size: 3em;
   max-width: 70%;     
   display: inline;
   padding: 5px;
+}
+.cpy{
+  
+  font-size: .5em;
 }
 .mymenu{
  padding: 3px; 
