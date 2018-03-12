@@ -98,7 +98,7 @@ var TriviaGame = {
       document.getElementById("SFX").play();      
       TriviaGame.newquestion();
       if(TriviaGame.bGameMusicOn){document.getElementById("MusicToggle").play();}
-  },
+      },
   newquestion: function (){
     if(TriviaGame.CurQuestion < TriviaGame.arrQuestion.length){
       $("#timer").text("00:10");
@@ -136,7 +136,7 @@ var TriviaGame = {
     }else{
       TriviaGame.gameover();
     }
-      
+    
   },
   right: function() {
     clearInterval(TriviaGame.GameInterval);
@@ -165,6 +165,9 @@ var TriviaGame = {
     TriviaGame.QuestionsWrong ++;
     TriviaGame.CurQuestion++;    
     TriviaGame.GameTimeOut = setTimeout(function(){TriviaGame.newquestion()},TriviaGame.TransitionTime);
+
+
+
   },
   gameover: function(){
     clearInterval(TriviaGame.GameInterval);
@@ -173,8 +176,29 @@ var TriviaGame = {
 
 
     $("#outcomeTime").text("Game Over");
-    $("#outcome").text("You answered " + TriviaGame.QuestionsRight + " question(s) out of " + TriviaGame.arrQuestion.length + " questions, correctly!");
-    $("#outcomeAnswer").text("You didn't answer " + TriviaGame.QuestionTimedOut + " question(s) and got "+ TriviaGame.QuestionsWrong +" question(s) wrong.");
+    let graderaw = TriviaGame.QuestionsRight / TriviaGame.arrQuestion.length;
+    let lettergrade ="";
+    console.log(graderaw);
+    switch(true){
+      case (graderaw>=.92):
+      lettergrade = "Congratulations!<br> You got an A!<br>";
+      break; 
+      case (graderaw>=.80):
+      lettergrade = "Good Job!<br> You got a B! Keep it up!<br>";
+      break; 
+      case (graderaw>=.70):
+      lettergrade = "Not Bad...<br> You got a C.<br> Just one more try, come on!<br>";
+      break; 
+      case (graderaw>=.60):
+      lettergrade = "Ouch!<br> You got a D.<br> You can do better, try again!<br>";
+      break; 
+      default:      
+      lettergrade = "Yikes!<br> You got a F!<br> Quick play again nobody saw it!<br>";
+      break; 
+    }
+    
+    $("#outcome").html(lettergrade + "You answered " + TriviaGame.QuestionsRight + " question(s)<br> out of " + TriviaGame.arrQuestion.length + " question(s),<br>Correctly!");
+    //$("#outcomeAnswer").text("You didn't answer " + TriviaGame.QuestionTimedOut + " question(s) and got "+ TriviaGame.QuestionsWrong +" question(s) wrong.");
 
     TriviaGame.GameTimeOut = setTimeout(function(){TriviaGame.reset()},TriviaGame.TransitionTime*2);
   },
