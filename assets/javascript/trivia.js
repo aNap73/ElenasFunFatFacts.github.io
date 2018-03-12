@@ -1,5 +1,10 @@
 /*©2018 A. Napolitano,  Elena Mills, RD*/
 var TriviaGame = {
+  gameMusicPlayer:document.getElementById("MusicToggle"), 
+  gameSFXPlayer:document.getElementById("SFX"),
+  gameMusic:$("#MusicToggle"),
+  gameSFX:$("#SFX"),
+  bGameMusicOn: true,
   MaxTime: 10000,
   QuestionTime: 0,  
   TransitionTime: 5000,
@@ -25,6 +30,23 @@ var TriviaGame = {
     $("#run").hide();
     $("#TriviaOutcome").hide();
     
+    //gamedata reset
+    TriviaGame.gameMusicPlayer=document.getElementById("MusicToggle"); 
+    TriviaGame.gameSFXPlayer=document.getElementById("SFX");
+    TriviaGame.gameMusic=$("#MusicToggle");
+    TriviaGame.gameSFX=$("#SFX");
+    TriviaGame.bGameMusicOn= true;
+    TriviaGame.MaxTime= 10000;
+    TriviaGame.QuestionTime=0;  
+    TriviaGame.TransitionTime=5000;
+    TriviaGame.QuestionsRight=0;
+    TriviaGame.QuestionsWrong=0;
+    TriviaGame.QuestionTimedOut=0;
+    TriviaGame.QuestionsLeft=0;
+    TriviaGame.CurQuestion=0;
+    TriviaGame.GameInterval="";
+    TriviaGame.GameTimeOut="";
+    //gamedata reset
 
     var Qi = new TriviaGame.Question("How many calories are in one gram of fat?","9 calories",["9 calories","3.4 calories","15 calories","4 calories"]);
     TriviaGame.arrQuestion.push(Qi); 
@@ -76,8 +98,8 @@ var TriviaGame = {
       $("#splash").hide();
       $("#TriviaOutcome").hide();      
       $("#run").show();
-      this.QuestionTime = this.MaxTime;
-      $("#AskQuestion").text(this.arrQuestion[TriviaGame.CurQuestion].Question);
+      TriviaGame.QuestionTime = TriviaGame.MaxTime;
+      $("#AskQuestion").text(TriviaGame.arrQuestion[TriviaGame.CurQuestion].Question);
       
       clearInterval(TriviaGame.GameInterval);
       
@@ -95,7 +117,7 @@ var TriviaGame = {
         if(!arrAns.includes(rnd)){
           arrAns.push(rnd);
       
-          var buttext = this.arrQuestion[TriviaGame.CurQuestion].Choice[rnd];
+          var buttext = TriviaGame.arrQuestion[TriviaGame.CurQuestion].Choice[rnd];
         
           var but = $("<button onclick='TriviaGame.answer(this)' class='ansbutton' id='ansbutton" + rnd + "'>" + buttext + "</button>");
           $("#but" + cnt).append(but);
@@ -119,7 +141,7 @@ var TriviaGame = {
     $("#outcomeAnswer").text("");
 
 
-    this.QuestionsRight ++;
+    TriviaGame.QuestionsRight ++;
     TriviaGame.CurQuestion++;
     TriviaGame.GameTimeOut = setTimeout(function(){TriviaGame.newquestion()},TriviaGame.TransitionTime);
   },
@@ -131,9 +153,9 @@ var TriviaGame = {
     
     $("#outcomeTime").text("Incorrect");
     $("#outcome").text("Time Remaining: " + TriviaGame.timeConverter(TriviaGame.QuestionTime/1000) + " seconds") ;
-    $("#outcomeAnswer").text("The correct answer was: " + this.arrQuestion[TriviaGame.CurQuestion].Answer);
+    $("#outcomeAnswer").text("The correct answer was: " + TriviaGame.arrQuestion[TriviaGame.CurQuestion].Answer);
 
-    this.QuestionsWrong ++;
+    TriviaGame.QuestionsWrong ++;
     TriviaGame.CurQuestion++;    
     TriviaGame.GameTimeOut = setTimeout(function(){TriviaGame.newquestion()},TriviaGame.TransitionTime);
   },
@@ -144,8 +166,8 @@ var TriviaGame = {
 
 
     $("#outcomeTime").text("Game Over");
-    $("#outcome").text("You answered " + this.QuestionsRight + " question(s) out of " + this.arrQuestion.length + " questions, correctly!");
-    $("#outcomeAnswer").text("You didn't answer " + this.QuestionTimedOut + " question(s) and got "+ this.QuestionsWrong +" question(s) wrong.");
+    $("#outcome").text("You answered " + TriviaGame.QuestionsRight + " question(s) out of " + TriviaGame.arrQuestion.length + " questions, correctly!");
+    $("#outcomeAnswer").text("You didn't answer " + TriviaGame.QuestionTimedOut + " question(s) and got "+ TriviaGame.QuestionsWrong +" question(s) wrong.");
 
     TriviaGame.GameTimeOut = setTimeout(function(){TriviaGame.reset()},TriviaGame.TransitionTime*2);
   },
@@ -159,10 +181,10 @@ var TriviaGame = {
   answer: function(button){
       clearInterval(TriviaGame.GameInterval);
       document.getElementById("SFX").play();
-      if(button.innerText===this.arrQuestion[TriviaGame.CurQuestion].Answer){
-        this.right();
+      if(button.innerText===TriviaGame.arrQuestion[TriviaGame.CurQuestion].Answer){
+        TriviaGame.right();
       }else{
-        this.wrong();
+        TriviaGame.wrong();
       }
 
   },
@@ -174,17 +196,12 @@ var TriviaGame = {
 
     $("#outcomeTime").text("Time Out");
     $("#outcome").text("Time Remaining: " + TriviaGame.timeConverter(TriviaGame.QuestionTime/1000) + " seconds") ;
-    $("#outcomeAnswer").text("The correct answer was: " + this.arrQuestion[TriviaGame.CurQuestion].Answer);
+    $("#outcomeAnswer").text("The correct answer was: " + TriviaGame.arrQuestion[TriviaGame.CurQuestion].Answer);
 
     TriviaGame.QuestionTimedOut++;
     TriviaGame.CurQuestion++;
     TriviaGame.GameTimeOut = setTimeout(function(){TriviaGame.newquestion()},TriviaGame.TransitionTime);
-  },
-  gameMusicPlayer:document.getElementById("MusicToggle"), 
-  gameSFXPlayer:document.getElementById("SFX"),
-  gameMusic:$("#MusicToggle"),
-  gameSFX:$("#SFX"),
-  bGameMusicOn: true,
+  },  
   mToggle: function () {    
     if(TriviaGame.bGameMusicOn){
       TriviaGame.gameMusicPlayer.pause();
