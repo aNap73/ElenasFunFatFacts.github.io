@@ -79,5 +79,5 @@ $(document).ready(function(){{
 
   ElsFunNutQuiz.ThemePage('Nutrition');
   TriviaGame.reset();
-  $("#Go").on('click', TriviaGame.start);  
+  $("#Go").on('click', function(){TriviaGame.start();});  
  }});

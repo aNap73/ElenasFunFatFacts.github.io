@@ -85,7 +85,7 @@ var TriviaGame = {
 
     TriviaGame.QuestionsLeft = TriviaGame.arrQuestion.length;
     TriviaGame.CurQuestion = 0;
-    TriviaGame.gameMusicPlayer.play(); 
+    
   },
   start(){
       $("#splash").hide();
@@ -94,6 +94,7 @@ var TriviaGame = {
       $("#timer").text(TriviaGame.timeConverter(TriviaGame.QuestionTime/1000));
       document.getElementById("SFX").play();
       TriviaGame.newquestion();
+      if(bGameMusicOn){TriviaGame.gameMusicPlayer.play();}
   },
   newquestion: function (){
     if(TriviaGame.CurQuestion < TriviaGame.arrQuestion.length){
