@@ -112,6 +112,7 @@
                 };
              myimg.css('background-image','url("'+ myitem +'")');
              myimg.css('background-size','cover');
+             //background-size: 0%;  
              myimg.css('background-repeat','no-repeat');
 
              myimg.on('click',function(event){
