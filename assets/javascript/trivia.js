@@ -75,7 +75,7 @@ var TriviaGame = {
     Qi = new TriviaGame.Question("Which is an example of eating a healthy dietary pattern?","All of the answers",["All of the answers","Includes good fats","Limits saturated fats","Keeps trans fats as low as possible"]);
     TriviaGame.arrQuestion.push(Qi);
 
-    Qi = new TriviaGame.Question("The majority of saturated fat comes from _____________ .","All of the answers",["All of the answers","Lamb","Butter","Poultry Skin"]);
+    Qi = new TriviaGame.Question("Which of these foods is high in saturated fat?","All of the answers",["All of the answers","Lamb","Butter","Poultry Skin"]);
     TriviaGame.arrQuestion.push(Qi);
 
     Qi = new TriviaGame.Question("Eating a diet high in unsaturated and trans fat raises your risk of _____________ .","All of the answers",["All of the answers","Cancer","Cardiovascular Disease","Diabetes"]);
