@@ -1,4 +1,4 @@
- /*©2018 A. Napolitano, Elena Mills, RD*/
+ /*©2018 A. Napolitano,   Elena Mills, RD*/
  var ElsFunNutQuiz={
    authRatings: 'pg',
    bPageRatings: false,

@@ -1,4 +1,4 @@
-/*©2018 A. Napolitano, Elena Mills, RD*/
+/*©2018 A. Napolitano,  Elena Mills, RD*/
 var TriviaGame = {
   MaxTime: 10000,
   QuestionTime: 0,  
