@@ -1,8 +1,9 @@
- /*©2018 A. Napolitano, Elena Mills RD*/
+ /*© 2018 A. Napolitano, Elena Mills RD*/
  var ElsFunNutQuiz={
    authRatings: 'pg',
    bPageRatings: false,
    bPageAnimate:true,
+   newgif:"",
    colGiffys:[],
    antGif: function(sStillImg, sAnimatedImg, sRating){
     this.Still = sStillImg;
@@ -12,26 +13,23 @@
    },    
     getGiffyCol: function(inSrch){
       let col = [];
+      
       col =  ElsFunNutQuiz.getGiffyCol1(inSrch);      
       return col;
     },    
     getGiffyCol1: function(inSrch){
+      
         let col = [];
-        let curfn = "aGpceXfwMY5TKtoH39N128oj2HirwBKv";
-        let offset = Math.floor(Math.random()*125);    
-         $.ajax({           
-           url: "https://api.giphy.com/v1/gifs/search?api_key=" + curfn + "&rating=" + ElsFunNutQuiz.authRatings + "&q='" + inSrch + "'&offset=" + offset + "&limit=15",
-           method: "GET"
-         }).then(function(response) {
-           ElsFunNutQuiz.colGiffys = [];
-           for(i=0;i<response.data.length;i++){
-             let rd = response.data[i];
-             let gif = new ElsFunNutQuiz.antGif(rd.images.fixed_height_still.url,
-               rd.images.fixed_height.url,
-               rd.rating);
-               ElsFunNutQuiz.colGiffys.push(gif);
-           }
-           ElsFunNutQuiz.colGiffys.forEach(function(item,i){             
+        let colord =[2,3,5,4,12,15,6,10,9,13,7,1,8,14,11,16,0];
+        ElsFunNutQuiz.colGiffys.length = 0;                    
+        for(j=0;j<colord.length;j++){       
+        ElsFunNutQuiz.newgif =  new ElsFunNutQuiz.antGif("./assets/images/" + colord[j] + ".gif",
+        "./assets/images/" + colord[j] + ".gif",
+          "g");       
+          ElsFunNutQuiz.colGiffys.push(ElsFunNutQuiz.newgif);
+         };
+         
+         ElsFunNutQuiz.colGiffys.forEach(function(item,i){             
              let myitem = "";
              if(ElsFunNutQuiz.bPageAnimate){
                myitem = item.Animated; 
@@ -68,8 +66,7 @@
              });
              $("#maincontent").append(myimg);       
            });       
-         }); 
-      },
+         },
     ThemePage: function(inTheme){ 
       if(inTheme.length < 1){inTheme="Iron Man"};           
       ElsFunNutQuiz.getGiffyCol(inTheme);     
