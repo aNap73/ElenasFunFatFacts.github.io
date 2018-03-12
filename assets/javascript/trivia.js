@@ -1,4 +1,4 @@
-/*©2018 A. Napolitano,  Elena Mills, RD*/
+/*©2018 A. Napolitano*/
 var TriviaGame = {
   bFirstTime:true,
   gameMusicPlayer:document.getElementById("MusicToggle"), 
@@ -52,8 +52,8 @@ var TriviaGame = {
     TriviaGame.CurQuestion=0;
     TriviaGame.GameInterval="";
     TriviaGame.GameTimeOut="";
-    //gamedata reset
-
+    
+    /*©2018 Elena Mills, RD*/
     var Qi = new TriviaGame.Question("How many calories are in one gram of fat?","9 calories",["9 calories","3.4 calories","15 calories","4 calories"]);
     TriviaGame.arrQuestion.push(Qi); 
 
@@ -82,10 +82,9 @@ var TriviaGame = {
     TriviaGame.arrQuestion.push(Qi);
 
     Qi = new TriviaGame.Question("The best way to lower your cholesterol is to _____________ .","Eat more whole foods, inculding, veggies and whole grains",["Eat more whole foods, inculding, veggies and whole grains", "Eat more brownies", "Drink whole milk twice daily","Eat more Fast Foods"]);
-    TriviaGame.arrQuestion.push(Qi);
+    TriviaGame.arrQuestion.push(Qi);    
 
-    
-
+    /*©2018 A. Napolitano*/
     TriviaGame.QuestionsLeft = TriviaGame.arrQuestion.length;
     TriviaGame.CurQuestion = 0;
     
@@ -135,8 +134,7 @@ var TriviaGame = {
 
     }else{
       TriviaGame.gameover();
-    }
-    
+    }    
   },
   right: function() {
     clearInterval(TriviaGame.GameInterval);
