@@ -80,7 +80,7 @@
     getGiffyCol1: function(inSrch){
       
         let col = [];
-        let colord =[2,3,5,4,12,15,6,10,9,13,7,1,8,14,11,16,0];
+        let colord =[4,3,5,9, 2,14,15,10, 8,15,14,7, 6,11,16,12];
         ElsFunNutQuiz.colGiffys.length = 0;                    
         for(j=0;j<colord.length;j++){       
         ElsFunNutQuiz.newgif =  new ElsFunNutQuiz.antGif("./assets/images/" + colord[j] + ".gif",
