@@ -134,9 +134,12 @@
     }
 }
 $(document).ready(function(){{
-
   ElsFunNutQuiz.ThemePage('Nutrition');
-  TriviaGame.reset();
-  if(TriviaGame.bGameMusicOn){TriviaGame.gameMusicPlayer.play();}
   $("#Go").on('click', function(){TriviaGame.start();});  
  }});
+
+
+ 
+
+
+  

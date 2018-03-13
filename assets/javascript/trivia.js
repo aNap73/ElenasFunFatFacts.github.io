@@ -1,10 +1,10 @@
 /*©2018 A. Napolitano*/
 var TriviaGame = {
   bFirstTime:true,
-  gameMusicPlayer:document.getElementById("MusicToggle"), 
-  gameSFXPlayer:document.getElementById("SFX"),
-  gameMusic:$("#MusicToggle"),
-  gameSFX:$("#SFX"),
+  //AAN 2018.03.13 Eliminated extra Sound Objects
+  gameMusic:document.getElementById("MusicToggle"),
+  gameSFX:document.getElementById("SFX"), 
+  //end Eliminated
   bGameMusicOn: true,
   MaxTime: 10000,
   QuestionTime: 0,  
@@ -23,25 +23,25 @@ var TriviaGame = {
   },
   arrQuestion: [],
   reset: function () {
-    if(TriviaGame.bFirstTime){
-      TriviaGame.bGameMusicOn= true;
-      TriviaGame.bFirstTime =false;
-    }
-    
+    //AAN 2018.03.13 Reordered functions; 
+    //    call Play on FirstTime.
+    //    reset gameMusic, gameSFX        
     clearTimeout(TriviaGame.GameTimeOut);
     clearInterval(TriviaGame.GameInterval);
+    if(TriviaGame.bFirstTime){
+      document.getElementById("MusicToggle").play();
+      TriviaGame.bFirstTime=false;
+    }
+    TriviaGame.gameMusic = document.getElementById("MusicToggle");
+    TriviaGame.gameSFX = document.getElementById("SFX"); 
     TriviaGame.arrQuestion.length=0;
-    TriviaGame.gameMusicPlayer = document.getElementById("MusicToggle");
+    // end Reordered
     $("#splash").show();
     $("#run").hide();
     $("#TriviaOutcome").hide();
     
     //gamedata reset
-    TriviaGame.gameMusicPlayer=document.getElementById("MusicToggle"); 
-    TriviaGame.gameSFXPlayer=document.getElementById("SFX");
-    TriviaGame.gameMusic=$("#MusicToggle");
-    TriviaGame.gameSFX=$("#SFX");
-    
+
     TriviaGame.MaxTime= 10000;
     TriviaGame.QuestionTime=0;  
     TriviaGame.TransitionTime=5000;
@@ -94,9 +94,13 @@ var TriviaGame = {
       $("#run").show();
       $("#TriviaOutcome").hide();
       $("#timer").text(TriviaGame.timeConverter(TriviaGame.QuestionTime/1000));
-      document.getElementById("SFX").play();      
+      //AAN 2018.03.13 Refactored play objects
+      TriviaGame.gameSFX.play();      
       TriviaGame.newquestion();
-      if(TriviaGame.bGameMusicOn){document.getElementById("MusicToggle").play();}
+      if(TriviaGame.bGameMusicOn){
+        document.getElementById("MusicToggle").play();        
+      };
+      //AAN end Refactored
       },
   newquestion: function (){
     if(TriviaGame.CurQuestion < TriviaGame.arrQuestion.length){
@@ -209,7 +213,9 @@ var TriviaGame = {
   },
   answer: function(button){
       clearInterval(TriviaGame.GameInterval);
-      document.getElementById("SFX").play();
+      //AAN 2018.03.13 Updated Objects
+      TriviaGame.gameSFX.play();
+      //AAN end Updated
       if(button.innerText===TriviaGame.arrQuestion[TriviaGame.CurQuestion].Answer){
         TriviaGame.right();
       }else{
@@ -219,7 +225,9 @@ var TriviaGame = {
   },
   timeout: function() {
     clearInterval(TriviaGame.GameInterval);
-    document.getElementById("SFX").play();
+    //AAN 2018.03.13 Sound Obect Delta
+    TriviaGame.gameSFX.play();
+    //AAN Sound
     $("#TriviaOutcome").show();      
     $("#run").hide();
 
@@ -233,11 +241,15 @@ var TriviaGame = {
   },  
   mToggle: function () {    
     if(TriviaGame.bGameMusicOn){
-      TriviaGame.gameMusicPlayer.pause();
+      //AAN 2018.03.13 Sound Obect Delta
+      TriviaGame.gameMusic.pause();
+      // end Sound
       $("#MusicLabel").text("Music(Off)");
     }else{
-      TriviaGame.gameMusicPlayer.play();  
-      $("#MusicLabel").text("Music(On)");  
+      //AAN 2018.03.13 Sound Obect Delta
+      TriviaGame.gameMusic.play();  
+      $("#MusicLabel").text("Music(On)");
+      //end Sound  
     }
     TriviaGame.bGameMusicOn = (!TriviaGame.bGameMusicOn);
   },
@@ -262,4 +274,12 @@ var TriviaGame = {
     return minutes + ":" + seconds;
   }
 }
+//AAN 2018.03.13 Seperated trivia and giffypage
+$(document).ready(function(){{
 
+  TriviaGame.reset();
+  if(TriviaGame.bGameMusicOn)
+  {TriviaGame.Music.play();} 
+  $("#Go").on('click', function(){TriviaGame.start();});  
+ }});
+ //end Seperated
