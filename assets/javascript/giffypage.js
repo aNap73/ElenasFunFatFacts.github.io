@@ -137,9 +137,3 @@ $(document).ready(function(){{
   ElsFunNutQuiz.ThemePage('Nutrition');
   $("#Go").on('click', function(){TriviaGame.start();});  
  }});
-
-
- 
-
-
-  
